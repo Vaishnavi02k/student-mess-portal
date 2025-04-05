@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useEffect, useState } from 'react';
+// import './App.css';
+// import { DatePicker } from 'antd';
+// import { collection, getDocs } from 'firebase/firestore';
+// import { db } from './firebase-config';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// function App() {
+//   const [users, setUsers]= useState([]);
+//   const usersCollectionRef= collection(db,"admins");
 
-export default App;
+//   useEffect(()=>{
+//     const getUsers= async ()=>{
+//       const data = await getDocs(usersCollectionRef);
+//       setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+//     }
+//     getUsers();
+
+//   },[])
+//   return (
+//     <div className="App">
+//     <h1 className="text-3xl font-bold underline">
+//       Hello world!
+//     </h1>
+//     <DatePicker />
+//     {
+//       users.map((user)=>{
+//         return(
+//           <div>
+//             {user.username}
+//             {user.password}
+//           </div>
+//         )
+//       })
+//     }
+//     </div>
+//   );
+// }
+
+// export default App;
