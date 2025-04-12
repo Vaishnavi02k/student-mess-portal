@@ -125,34 +125,21 @@ function Dashboard() {
     return (
         <div className="mess-menu-wrapper">
             <div className="mess-menu-grid">
+                <div className="meal-layout">
+                    {/* Left column - Active Meal */}
+                    <div className="active-meal">
+                        {activeMeal === 'breakfast' && <ActiveMeal activeMeal={breakfast} title="Breakfast" />}
+                        {activeMeal === 'lunch' && <ActiveMeal activeMeal={lunch} title="Lunch" />}
+                        {activeMeal === 'snacks' && <ActiveMeal activeMeal={snacks} title="Snacks" />}
+                        {activeMeal === 'dinner' && <ActiveMeal activeMeal={dinner} title="Dinner" />}
+                    </div>
 
-
-
-                {/* Column 2 - Meal Section */}
-                <div className="meal-section">
-                    {/* Active Meal */}
-
-                    {activeMeal === 'breakfast' && breakfast.main}
-                    {activeMeal === 'lunch' && lunch.main}
-                    {activeMeal === 'snacks' && snacks.main}
-                    {activeMeal === 'dinner' && <ActiveMeal activeMeal={dinner} title="Dinner" />}
-
-                    {/* Other Meals in One Row */}
-                    {/* Other Meals in One Row (Excluding Active Meal) */}
-                    <div className="meal-row">
-                        {activeMeal !== 'breakfast' && (
-                            <MealItem title="Breakfast" meal={breakfast} />
-                        )}
-                        {activeMeal !== 'lunch' && (
-                            // <MealItem mealName="Breakfast" mealData={breakfast} />
-                            <MealItem title="Lunch" meal={lunch} />
-                        )}
-                        {activeMeal !== 'snacks' && (
-                            <MealItem title="Snacks" meal={snacks} />
-                        )}
-                        {activeMeal !== 'dinner' && (
-                            <MealItem title="Dinner" meal={dinner} />
-                        )}
+                    {/* Right column - Other meals */}
+                    <div className="other-meals">
+                        {activeMeal !== 'breakfast' && <MealItem title="Breakfast" meal={breakfast} />}
+                        {activeMeal !== 'lunch' && <MealItem title="Lunch" meal={lunch} />}
+                        {activeMeal !== 'snacks' && <MealItem title="Snacks" meal={snacks} />}
+                        {activeMeal !== 'dinner' && <MealItem title="Dinner" meal={dinner} />}
                     </div>
                 </div>
             </div>

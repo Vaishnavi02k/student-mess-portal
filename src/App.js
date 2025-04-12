@@ -1,39 +1,27 @@
-// import { useEffect, useState } from 'react';
-// import './App.css';
-// import { DatePicker } from 'antd';
-// import { collection, getDocs } from 'firebase/firestore';
-// import { db } from './firebase-config';
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import './index.css';
+// import App from './App';
+// import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+// import Layout from './Layout';
+// import Dashboard from './components/Dashboard/Dashboard';
+// import SignUp from './components/SignUp/SignUp';
+// import Login from './components/Login/Login';
+// import Notifications from './components/Notifications/Notifications';
+// import MessMenu from './components/MessMenu/MessMenu';
+// import Payment from './components/Payment/Payment';
 
-// function App() {
-//   const [users, setUsers]= useState([]);
-//   const usersCollectionRef= collection(db,"admins");
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<Layout />}>
+//       <Route path='' element={<Dashboard />} />
+//       <Route path='/signup' element={<SignUp />} />
+//       <Route path='/login' element={<Login />} />
+//       <Route path='/notifications' element={<Notifications />} />
+//       <Route path='/messmenu' element={<MessMenu />} />
+//       <Route path="/payment" element={<Payment />} />
+//     </Route>
+//   )
+// )
 
-//   useEffect(()=>{
-//     const getUsers= async ()=>{
-//       const data = await getDocs(usersCollectionRef);
-//       setUsers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-//     }
-//     getUsers();
-
-//   },[])
-//   return (
-//     <div className="App">
-//     <h1 className="text-3xl font-bold underline">
-//       Hello world!
-//     </h1>
-//     <DatePicker />
-//     {
-//       users.map((user)=>{
-//         return(
-//           <div>
-//             {user.username}
-//             {user.password}
-//           </div>
-//         )
-//       })
-//     }
-//     </div>
-//   );
-// }
-
-// export default App;
+// export default router;

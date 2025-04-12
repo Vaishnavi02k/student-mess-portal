@@ -14,9 +14,9 @@ function Navbar() {
   const navLinks = [
     { name: "Dashboard", path: "/" },
     { name: "Notifications", path: "/notifications" },
-    { name: "ComplaintBox", path: `/${userName}/complaintbox` },
+    { name: "ComplaintBox", path: `/complaintbox` },
     { name: "MessMenu", path: "/messmenu" },
-    { name: "QrCode", path: `/${userName}/qrcode` },
+    { name: "QrCode", path: `/qrcode` },
     { name: "Payment", path: `/${userName}/payment` },
   ];
 
