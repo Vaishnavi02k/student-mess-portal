@@ -13,7 +13,7 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.clear(); // or use removeItem("username") if only clearing that
-    navigate("/login");
+    navigate("/");
   };
 
   const navLinks = [

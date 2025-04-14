@@ -72,7 +72,7 @@ function Payment() {
 
   const makePayment = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/payment', {
+      const response = await axios.post('https://server-hostel-mess.vercel.app/payment', {
         amount,
         regNo,
       });

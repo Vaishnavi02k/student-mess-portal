@@ -11,9 +11,9 @@ const PaymentSuccess = () => {
   }, []);
 
   return (
-    <div className="payment-success-container">
-      <h2 className="text-center text-3xl text-green-600">Payment Successful!</h2>
-      <p className="text-center text-lg">Thank you for your payment. You will be redirected to your dashboard shortly.</p>
+    <div className="payment-success-container pt-40">
+      <h2 className="text-center text-4xl font-bold text-green-600 ">Payment Successful!</h2>
+      <p className="text-center text-lg font-extrabold">Thank you for your payment. You will be redirected to your dashboard shortly.</p>
     </div>
   );
 };

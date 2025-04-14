@@ -11,9 +11,9 @@ const PaymentCancel = () => {
   }, []);
 
   return (
-    <div className="payment-cancel-container">
-      <h2 className="text-center text-3xl text-red-600">Payment Canceled</h2>
-      <p className="text-center text-lg">Your payment was not processed. You will be redirected to your dashboard shortly.</p>
+    <div className="payment-cancel-container pt-40 ">
+      <h2 className="text-center text-4xl font-bold text-red-600">Payment Canceled</h2>
+      <p className="text-center text-lg font-extrabold">Your payment was not processed. You will be redirected to your dashboard shortly.</p>
     </div>
   );
 };
