@@ -34,7 +34,7 @@ function Login() {
             localStorage.setItem("name", matchedUser.name || matchedUser.username);
             toast.success("Logged in successfully!");
             setTimeout(() => {
-                navigate(`/${matchedUser.username}`); 
+                navigate(`/${matchedUser.username}/dashboard`); 
             }, 1500); // short delay to show toas
         } else {
             localStorage.setItem("username", "nouser");
