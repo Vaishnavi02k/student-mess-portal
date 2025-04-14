@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       {/* Protected routes only use Layout */}
       <Route path="/:username" element={<PrivateRoute />}>
         <Route element={<Layout />}>
-          <Route index element={<Dashboard />} />
+          <Route index path="/" element={<Dashboard />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="messmenu" element={<MessMenu />} />
           <Route path="payment" element={<Payment />} />
