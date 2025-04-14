@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 
 const PaymentCancel = () => {
+  const username = localStorage.getItem("username");
   useEffect(() => {
     // Set timeout to redirect to the dashboard after 5 seconds
     const timer = setTimeout(() => {
-      window.location.href = "/dashboard";  // Redirect to dashboard
+      window.location.href = `/${username}/dashboard`;  // Redirect to dashboard
     }, 5000); // 5 seconds delay
 
     return () => clearTimeout(timer); // Clean up the timer on component unmount
-  }, []);
+  }, [username]);
 
   return (
     <div className="payment-cancel-container pt-40 ">

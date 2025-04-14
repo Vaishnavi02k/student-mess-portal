@@ -9,7 +9,7 @@ const PrivateRoute = () => {
   return username !== "nouser" && username === routeUsername ? (
     <Outlet />
   ) : (
-    <Navigate to="/login" replace />
+    <Navigate to="/" replace /> //Login page
   );
 };
 
