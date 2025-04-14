@@ -4,7 +4,7 @@ const PaymentSuccess = () => {
   useEffect(() => {
     // Set timeout to redirect to the dashboard after 5 seconds
     const timer = setTimeout(() => {
-      window.location.href = "/";  // Redirect to dashboard
+      window.location.href = "/dashboard";  // Redirect to dashboard
     }, 5000); // 5 seconds delay
 
     return () => clearTimeout(timer); // Clean up the timer on component unmount
