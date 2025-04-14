@@ -3,12 +3,15 @@ import { Form, Input, Button, Row, Col, Typography, Select } from 'antd';
 import { db } from "../../firebase-config";
 import { collection, getDocs, addDoc } from "@firebase/firestore";
 import Password from 'antd/es/input/Password';
+import { toast, ToastContainer } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const { Title } = Typography;
 const { Option } = Select;
 
 const SignUp = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const [studentData, setStudentData] = useState({
     firstname: '',
@@ -24,7 +27,7 @@ const SignUp = () => {
     imagedrive: '',
   });
   const studentCollectionRef = collection(db, "studentdata");
-  const studentLoginRef=collection(db,"studentlogin")
+  const studentLoginRef = collection(db, "studentlogin")
 
 
   const handleChange = (key, value) => {
@@ -34,20 +37,23 @@ const SignUp = () => {
   const handleSubmit = async () => {
     console.log('Submitted Student Data:', studentData);
     // event.preventDefault();
-    await addDoc(studentCollectionRef,studentData);
-    await addDoc(studentLoginRef,{
-        username:studentData.regno,
-        password:studentData.password,
-        name:studentData.firstname
+    await addDoc(studentCollectionRef, studentData);
+    await addDoc(studentLoginRef, {
+      username: studentData.regno,
+      password: studentData.password,
+      name: studentData.firstname
     })
-    // setTimeout(function () {
-    //     window.router.push('/')
-    // }, 1000);
+    toast.success("Logged in successfully!");
+    setTimeout(function () {
+      navigate(`/login`)
+    }, 1000);
+
 
   };
 
   return (
     <div className="max-w-xl mx-auto py-5 px-4 bg-white shadow-lg rounded-lg">
+      <ToastContainer />
       <Title level={2} className="text-center mb-6">
         Student <span className="text-blue-600">Signup</span>
       </Title>
@@ -133,10 +139,15 @@ const SignUp = () => {
           rules={[
             { required: true, message: 'Please enter an email' },
             { type: 'email', message: 'Enter a valid email address' },
+            {
+              pattern: /^[a-zA-Z0-9._%+-]+@iitgoa\.ac\.in$/,
+              message: 'Please enter your institute email ID (e.g., xyz@iitgoa.ac.in)',
+            }
           ]}
+
         >
           <Input
-            placeholder="email@domain.com"
+            placeholder="xyz@iitgoa.ac.in"
             value={studentData.email}
             onChange={e => handleChange('email', e.target.value)}
           />

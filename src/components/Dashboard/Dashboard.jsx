@@ -123,7 +123,7 @@ function Dashboard() {
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div className="mess-menu-wrapper">
+        <div className="mess-menu-wrapper -m-4 pt-20">
             <div className="mess-menu-grid">
                 <div className="meal-layout">
                     {/* Left column - Active Meal */}

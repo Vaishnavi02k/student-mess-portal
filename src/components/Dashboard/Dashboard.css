@@ -1,6 +1,8 @@
 .mess-menu-wrapper {
-  padding: 80px 16px 32px;
+  /* padding:80px 16px 32px; */
+
   background-color: #f4fff4;
+  /* background-color: #b03232; */
   min-height: 100vh;
   display: flex;
   justify-content: center;

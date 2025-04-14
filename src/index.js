@@ -14,24 +14,42 @@ import { loadStripe } from '@stripe/stripe-js';
 import Payment from './components/Payment/Payment';
 import ComplaintBox from './components/ComplaintBox/ComplaintBox';
 import QRCodeGenerator from './components/QRCodeGenerator/QRCodeGenerator';
+import PaymentSuccess from './components/Payment/PaymentSucess';
+import PaymentCancel from './components/Payment/PaymentCancel';
+import PrivateRoute from './utils/PrivateRoute';
+import Profile from './components/Profile/Profile';
+
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path='' element={<Dashboard />} />
-      <Route path='/signup' element={<SignUp />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/notifications' element={<Notifications />} />
-      <Route path='/messmenu' element={<MessMenu />} />
-      <Route path="/payment" element={<Payment />} />
-      <Route path="/complaintbox" element={<ComplaintBox />} />
-      <Route path="/qrcode" element={<QRCodeGenerator />} />
-    </Route>
+    <>
+      {/* No layout for login/signup */}
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
+
+      {/* Protected routes only use Layout */}
+      <Route path="/:username" element={<PrivateRoute />}>
+        <Route element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="notifications" element={<Notifications />} />
+          <Route path="messmenu" element={<MessMenu />} />
+          <Route path="payment" element={<Payment />} />
+          <Route path="complaintbox" element={<ComplaintBox />} />
+          <Route path="qrcode" element={<QRCodeGenerator />} />
+          <Route path="success" element={<PaymentSuccess />} />
+          <Route path="cancel" element={<PaymentCancel />} />
+          <Route path="profile" element={<Profile />} />
+
+        </Route>
+      </Route>
+    </>
   )
-)
+);
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
