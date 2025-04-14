@@ -28,12 +28,12 @@ const router = createBrowserRouter(
     <>
       {/* No layout for login/signup */}
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
 
       {/* Protected routes only use Layout */}
       <Route path="/:username" element={<PrivateRoute />}>
         <Route element={<Layout />}>
-          <Route index path="/" element={<Dashboard />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="notifications" element={<Notifications />} />
           <Route path="messmenu" element={<MessMenu />} />
           <Route path="payment" element={<Payment />} />

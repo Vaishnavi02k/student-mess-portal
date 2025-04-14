@@ -17,7 +17,7 @@ function Navbar() {
   };
 
   const navLinks = [
-    { name: "Dashboard", path: `/${userName}` },
+    { name: "Dashboard", path: `/${userName}/dashboard` },
     { name: "Notifications", path: `/${userName}/notifications` },
     { name: "Complaint Box", path: `/${userName}/complaintbox` },
     { name: "Mess Menu", path: `/${userName}/messmenu` },
